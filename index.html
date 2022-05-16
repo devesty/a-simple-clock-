@@ -4,88 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width", initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>25 + 5 clock</title>
-</head>
+    <title>A clock timer</title>
+    <link rel="stylesheet"  href="styles.css">
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+    </head>
 <body>
-    <div id="pomodoro-container">
-        <div id="pomodoro-clock">
-          <div id="pomodoro-timer"></div>
-          <div id="pomodoro-clock-actions">
-            <button id="pomodoro-start">Start</button>
-            <button id="pomodoro-pause">Pause</button>
-            <button id="pomodoro-stop">Stop</button>
-          </div>
-        </div>
+            <div id="countdown">
+    
     </div>  
+    <script src="app.js">
+    
+    </script>
 </body>
 
 
-<script>
-const pomodoroTimer = document.querySelector('#pomodoro-timer')
-const startButton = document.querySelector('#pomodoro-start')
-const pauseButton = document.querySelector('#pomodoro-pause')
-const stopButton = document.querySelector('#pomodoro-stop') 
 
-
-startButton.addEventListener('click', () => {
-    toggleClock()
-});
-pauseButton.addEventListener('click', () => {
-    toggleClock()
-});
-stopButton.addEventListener('click', () => {
-    toggleClock(true)
-});
-clearInterval(clockTimer)
-let isClockRunning = false;
-// in seconds = 25 mins
-let workSessionDuration = 1500
-let currentTimeLeftInSession = 1500
-// in seconds = 5 mins;clockTimer = setInterval(() => {
-    clockTimer = setInterval(() => {
-  currentTimeLeftInSession--
-  displayCurrentTimeLeftInSession()
-}, 1000)
-let breakSessionDuration = 300
-const toggleClock = (reset) => {
-  if (reset) {
-    // STOP THE TIMER
-  } else {
-    if (isClockRunning === true) {
-      // PAUSE THE TIMER
-      isClockRunning = false
-    } else {
-      // START THE TIMER
-isClockRunning = true
-    }
-}
-}
-clockTimer = setInterval(() => {
-  // decrease time left / increase time spent
-  currentTimeLeftInSession--
-}, 1000)
-const displayCurrentTimeLeftInSession = () => {
-  const secondsLeft = currentTimeLeftInSession
-  let result = ''
-  const seconds = secondsLeft % 60
-  const minutes = parseInt(secondsLeft / 60) % 60
-  let hours = parseInt(secondsLeft / 3600)
-  // add leading zeroes if it's less than 10
-  function addLeadingZeroes(time) {
-    return time < 10 ? `0${time}` : time
-}
-  if (hours > 0) result += `${hours}:`
-  result += `${addLeadingZeroes(minutes)}:${addLeadingZeroes(seconds)}`
-  pomodoroTimer.innerText = result.toString()
-}
-const minutes = parseInt(secondsLeft / 60) % 60
-let hours = parseInt(secondsLeft / 3600)
-function addLeadingZeroes(time) {
-  return time < 10 ? `0${time}` : time
-}
-return time < 10 ? `0${time}` : time
-if (hours > 0) result += `${hours}:`
-result += `${addLeadingZeroes(minutes)}:${addLeadingZeroes(seconds)}`
-pomodoroTimer.innerText = result
-</script>
 </html>
